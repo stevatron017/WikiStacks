@@ -11,7 +11,7 @@
     "morgan": "^1.9.0",
     "pg": "^6.4.2",
     "pg-hstore": "^2.3.2",
-    "sequelize": "^4.31.2"
+    "sequelize": "4.44.4"
   },
   "devDependencies": {
     "nodemon": "^1.14.11"
