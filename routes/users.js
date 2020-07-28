@@ -1,20 +1,19 @@
 const express = require("express");
 const router = express.Router();
-const models = require("../models");
-const Page = models.Page;
-const User = models.User;
+const { Page, User } = require("../models");
 const { userList, userPages } = require("../views");
 
-// /users
+// GET /users
 router.get("/", async (req, res, next) => {
   try {
     const users = await User.findAll();
     res.send(userList(users));
-  } catch (error) { next(error) }
+  } catch (error) {
+    next(error);
+  }
 });
 
-// /users/(dynamicvalue)
-
+// GET /users/:userId
 router.get("/:userId", async (req, res, next) => {
   try {
     const user = await User.findByPk(req.params.userId);
@@ -25,7 +24,9 @@ router.get("/:userId", async (req, res, next) => {
     });
 
     res.send(userPages(user, pages));
-  } catch (error) { next(error) }
+  } catch (error) {
+    next(error);
+  }
 });
 
 module.exports = router;
