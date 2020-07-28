@@ -1,16 +1,15 @@
-const http = require('http');
-const models = require('./models');
+const { db } = require('./models');
 const app = require('./app');
-const server = http.createServer(app);
 
 const PORT = 3000;
 
 const init = async () => {
-  //sync creates the table if it does not exist. alter true creates the tables and makes any changes to keep the modules in sync
-  await models.User.sync()
-  await models.Page.sync() 
-  server.listen(PORT, () => {
-    console.log(`Server is listening on port ${PORT}!`);
+  // `.sync()` creates the table in the database if it doesn't exist (and does nothing if it already exists)
+  // We can call this on each individual Sequelize model (e.g. `User`, `Page`), or the entire Sequelize instance (`db`) since our models are defined on it (i.e. `db.define(...)`)
+  // https://sequelize.org/master/manual/model-basics.html#model-synchronization
+  await db.sync()
+  app.listen(PORT, () => {
+    console.log(`Listening at http://localhost:${PORT}`);
   });
 }
 
