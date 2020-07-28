@@ -5,8 +5,7 @@
     "node": "12.x"
   },
   "scripts": {
-    "start": "nodemon server.js",
-    "test": "mocha"
+    "start": "nodemon server.js"
   },
   "dependencies": {
     "express": "^4.16.2",
