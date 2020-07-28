@@ -12,7 +12,7 @@ app.use("/wiki", require("./routes/wiki"));
 app.use("/users", require("./routes/users"));
 
 app.get("/", function (req, res) {
-   res.redirect("/wiki/");
+  res.redirect("/wiki/");
 });
 
 module.exports = app;
