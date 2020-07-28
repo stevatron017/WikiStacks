@@ -1,8 +1,12 @@
 {
   "name": "wikistack",
-  "version": "1.0.0",
+  "version": "1.2.0",
+  "engines": {
+    "node": "12.x"
+  },
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "test": "mocha"
   },
   "dependencies": {
     "express": "^4.16.2",
@@ -14,6 +18,7 @@
     "sequelize": "4.44.4"
   },
   "devDependencies": {
+    "mocha": "^8.0.1",
     "nodemon": "^1.14.11"
   }
 }
