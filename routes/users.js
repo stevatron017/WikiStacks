@@ -3,7 +3,7 @@ const router = express.Router();
 const { Page, User } = require("../models");
 const { userList, userPages } = require("../views");
 
-// /users
+// GET /users
 router.get("/", async (req, res, next) => {
   try {
     const users = await User.findAll();
@@ -13,8 +13,7 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-// /users/(dynamicvalue)
-
+// GET /users/:userId
 router.get("/:userId", async (req, res, next) => {
   try {
     const user = await User.findByPk(req.params.userId);
