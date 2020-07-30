@@ -34,7 +34,7 @@ router.post("/", async (req, res, next) => {
 });
 
 // POST /wiki/:slug
-router.post("/:slug", async (req, res, next) => {
+router.put("/:slug", async (req, res, next) => {
   try {
     const [updatedRowCount, updatedPages] = await Page.update(req.body, {
       where: {
@@ -49,8 +49,8 @@ router.post("/:slug", async (req, res, next) => {
   }
 });
 
-// GET /wiki/:slug/delete
-router.get("/:slug/delete", async (req, res, next) => {
+// DELETE /wiki/:slug
+router.delete("/:slug", async (req, res, next) => {
   try {
     await Page.destroy({
       where: {
