@@ -1,9 +1,6 @@
 {
   "name": "wikistack",
   "version": "1.2.0",
-  "engines": {
-    "node": "12.x"
-  },
   "scripts": {
     "start": "nodemon server.js"
   },
